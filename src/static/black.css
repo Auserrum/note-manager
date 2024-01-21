@@ -1,0 +1,14 @@
+body {
+    background-color: #3e3e3e!important;
+    color: #fff!important;;
+}
+
+header {
+    padding: 0 3rem;
+    background-color: #222222;
+    box-shadow: 0 0 5px 3px #0f0f0f;
+}
+
+#logo {
+    color: #FFF;
+}

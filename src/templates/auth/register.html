@@ -1,0 +1,93 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block title %}Регистрация | Менеджер заметок{% endblock %}
+
+{% block content %}
+	{% if flash %}
+	<div class="container"></div>
+		<div class="alert alert-success" role="alert">
+			{{ flash }}
+		</div>
+	</div>
+	{% elif errors %}
+		<div class="container">
+			<div class="alert alert-danger" role="alert">
+				{{ errors }}
+			</div>
+		</div>
+	{% endif %}
+	<section class="vh-80" id="reg">
+	  <div class="container h-100">
+	    <div class="row d-flex justify-content-center align-items-center h-100">
+	      <div class="col-lg-12 col-xl-11">
+	        <div class="card text-black" style="border-radius: 25px;">
+	          <div class="card-body">
+	            <div class="row justify-content-center">
+	              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+	                <p class="text-center h2 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="margin-bottom: 2rem!important;">Регистрация</p>
+
+	                <form class="mx-1 mx-md-4 register-form" method="POST">
+
+						{% csrf_token %}
+
+						{{ form.as_p }}
+
+						<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+							<button type="submit" class="btn btn-primary btn-lg">Регистрация</button>
+						</div>
+
+	                </form>
+
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+	<div class="b-example-divider"></div>
+
+	<style>
+		.helptext {
+			display: none;
+		}
+
+		.register-form > ul {
+			display: none;
+		}
+
+		.errorlist {
+			display: block!important;
+			position: relative;
+			list-style: none;
+			padding-left: 0;
+		}
+
+		.errorlist {
+			--bs-alert-color: var(--bs-danger-text-emphasis);
+			--bs-alert-bg: var(--bs-danger-bg-subtle);
+			--bs-alert-border-color: var(--bs-danger-border-subtle);
+			--bs-alert-link-color: var(--bs-danger-text-emphasis);
+
+
+			--bs-alert-padding-x: 1rem;
+			--bs-alert-padding-y: 1rem;
+			--bs-alert-margin-bottom: 1rem;
+			--bs-alert-border: var(--bs-border-width) solid var(--bs-alert-border-color);
+			--bs-alert-border-radius: var(--bs-border-radius);
+
+			position: relative;
+			padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
+			margin-bottom: var(--bs-alert-margin-bottom);
+			color: var(--bs-alert-color);
+			background-color: var(--bs-alert-bg);
+			border: var(--bs-alert-border);
+			border-radius: var(--bs-alert-border-radius);
+		}
+	</style>
+
+{% endblock %}

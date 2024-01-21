@@ -1,0 +1,14 @@
+{% extends '../base.html' %}
+{% load static %}
+
+
+{% block title %}Выход | Password Manager{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-outline-warning" type="submit" name="submit">Выход</button>
+        </form>
+    </div>
+{% endblock %}

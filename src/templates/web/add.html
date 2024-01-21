@@ -1,0 +1,16 @@
+<form method="post" action="/add/">
+
+	{% csrf_token %}
+
+	<div class="add-window" id="add-window">
+		<div class="add-input">
+			<input type="text" class="form-control" id="specificSizeInputName" placeholder="Название..." name="title">
+		</div>
+		<div class="add-info">
+			<textarea type="text" class="form-control" id="form-content" placeholder="Текст заметки..." name="content"></textarea>
+		</div>
+		<button type="submit" class="btn btn-warning mx-auto send-btn">Отправить</button>
+	</div>
+
+
+</form>

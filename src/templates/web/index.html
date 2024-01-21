@@ -1,0 +1,63 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %}Notes Manager{% endblock %}
+
+{% block content %}
+
+	{% if log %}
+		{% include './add.html' %}
+
+		<div class="container" style="margin-left: auto!important; ">
+			<button id="add" class="btn btn-warning add-btn text-decoration-none">+ Добавить</button>
+		</div>
+		<div style="margin: 2rem;"></div>
+
+		<div class="container radius border-cont" id="container">
+
+			{% if tasks %}
+
+				{% for task in tasks %}
+					{% if task.completed %}
+
+					{% else %}
+					<form action="/completed/{{ task.id }}/" method="POST">
+						{% csrf_token %}
+						<div class="card shadow" style="border-color: #ffc107!important; font-size: 1.2em;">
+							<div class="card-body index-card" style="display: flex;">
+								<div class="me-md-auto">
+
+										<button type="submit" class="gone"></button>
+
+										{{ task.title }}
+
+								</div>
+
+							</div>
+							<p style="font-size: 16px; margin-left: 4rem;">{{ task.content }}</p>
+						</div>
+					</form>
+
+					<div style="margin: 2rem;"></div>
+
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<div class="no-tasks mx-auto">
+					<h3>У вас пока нет заметок.</h3>
+					<p>Вы можете добавить их прямо сейчас, нажав на кнопку вверху экрана</p>
+				</div>
+			{% endif %}
+
+		</div>
+
+		<style>
+			.accordion-button::after {
+				display: none!important;
+			}
+		</style>
+
+	{% endif %}
+
+
+{% endblock %}

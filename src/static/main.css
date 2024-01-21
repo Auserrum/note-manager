@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500&display=swap');
+
+#btn {
+	margin-right: 18px;
+}
+
+#btn:first-child {
+	margin-left: 20px;
+}
+
+a {
+	color: #d86800d2;
+}
+
+a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	color: #ffc107;
+}
+
+#logo {
+	font-weight: 400;
+	font-size: 20px;
+}
+
+#register-text {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#login-btn {
+	margin-right: 20px;
+	font-size: 20px;
+	padding: 5px 20px;
+	color: #aa861a;
+}
+
+.b-example-divider {
+	height: 3rem;
+	border-width: 1px 0;
+}
+
+#user-button:hover {
+	transform: scale(1.05);
+}
+
+#id_username , #id_password , #id_email , #id_password1 , #id_password2 {
+	margin-bottom: 1rem !important;
+	position: relative;
+	padding: 1rem .75rem;
+	height: calc(3.5rem + calc(var(--bs-border-width))) * 0.5;
+	line-height: 1.25;
+	display: block;
+	width: calc(100% - 1rem);
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--bs-body-color);
+	background-color: var(--bs-body-bg);
+	background-clip: padding-box;
+	border: var(--bs-border-width) solid var(--bs-border-color);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: var(--bs-border-radius);
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+label {
+	margin-bottom: 0.5rem;
+	font-size: 18px;
+}
+
+#id_password1:hover form>ul {
+	display: block;
+}
+
+.add-btn {
+	color: #292929;
+}
+
+.w-70 {
+	width: 70%!important;
+}
+
+.no-tasks {
+	text-align: center;
+	padding: 1rem;
+}
+
+.check-circle {
+	position: relative;
+	margin: 0 1rem;
+	top: -1px;
+	cursor: pointer;
+	width: 1.5rem;
+	height: 1.5rem;
+	color: #e4e4e4;
+}
+
+.trash-img {
+	position: relative;
+	transform: scale(1.6);
+	margin: 0 1rem;
+	padding: 0.3rem;
+	border-radius: 10%;
+	background-color: #ffc107;
+	color: #fff;
+	top: -2px;
+	cursor: pointer;
+	transition: 0.2s all;
+}
+
+.trash-img:hover {
+	background-color: #ecb100;
+}
+
+input[type="radio"] {
+	display: flex;
+	transform: scale(1.1);
+	margin-right: 1rem;
+}
+
+input[type="radio"]:focus {
+	border: none;
+}
+
+.prior {
+	display: flex;
+	width: 30px!important;
+	height: 30px;
+	border-radius: 100%;
+	cursor: pointer;
+	box-sizing: border-box;
+	border: none;
+	margin-right: 2rem;
+}
+
+.prior:hover {
+	border: 2px solid #002fff
+}
+
+.prior-label {
+	display: flex;
+	text-decoration: none;
+	color: #000;
+	padding: 0!important;
+	width: 10rem!important;
+}
+.mg-0 {
+	margin: 0!important;
+}
+
+.radio-label {
+	padding-bottom: 1rem;
+	padding-left: 1rem;
+	display: flex;
+}
+
+.black {
+	position: fixed;
+	display: none;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	top:0;
+	background-color: #000;
+	opacity: 0.5;
+}
+
+.active-block {
+	display: block!important;
+}
+
+.add-sidebar {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	height: 100%;
+	width: 25rem;
+	background-color: #f1f1f1;
+	transition: 0.3s all;
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.active-add-sidebar {
+	z-index: 1;
+	right: 0;
+	transition: 0.3s all;
+}
+
+.sidebar-btns {
+	padding: 1rem;
+}
+
+.add-btn {
+	margin-right: 0.5rem;
+}

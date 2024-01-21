@@ -1,0 +1,43 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %}{{ user.username }} | Password Manager{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{ user.username }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        <div class="b-example-divider"></div>
+        
+        {% if passwords %}
+            {% if pass.user == user.username %}
+                {% for pass in passwords %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Имя</th>
+                            <th scope="col">Логин</th>
+                            <th scope="col" type="password">Пароль</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{ pass.id }}</th>
+                                <td><a href="{{ pass.name }}">{{ pass.resource }}</a></td>
+                                <td>{{ pass.login }}</td>
+                                <td>{{ pass.password }}</td>
+                            </tr>
+                        </table>
+                {% endfor %}
+            {% else %}
+                Нет паролей для пользователя {{ user.username }}.
+            {% endif %}
+        {% endif %}            
+        </div>
+    </div>
+{% endblock %}

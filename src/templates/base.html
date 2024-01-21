@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="icon" type="image/png" href="{% static 'img/logob.png' %}">
+	<link href="{% static '/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'main.css' %}">
+	<script src="{% static '/main.js' %}"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+	<script src="{% static 'jquery.min.js' %}"></script>
+</head>
+<body>
+	{% if log %}
+	<div class="black" id="black"></div>
+	<div class="black" id="black-bur"></div>
+
+		<div class="add-sidebar sidebar" id="add-sidebar">
+			<div class="user-cont shadow">
+				<div>
+					<img class="userpic" src="{% static 'img/userpic.webp' %}" alt=""/>
+				</div>
+				<p class="username">{{ user.username }}</p>
+			</div>
+
+			<a href="{% url 'logout' %}" class="btn btn-warning logout mt-xl-3 text-center">
+				Выход
+			</a>
+		</div>
+	{% endif %}
+
+
+	<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+		<a href="/" style="outline: none;" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+			<span class="fs-4" id="logo">
+				<img class="logo" src="{% static 'img/logob.png' %}" alt="">
+				Заметки
+
+			</span>
+		</a>
+
+
+
+		{% if log %}
+
+
+			<button id="toggle-btn" class="btn btn-outline-warning">
+				<div class="span">
+					<span class="ch"></span>
+					<span class="ch"></span>
+					<span class="ch"></span>
+				</div>
+			</button>
+
+		{% else %}
+			<div class="col-md-3 text-end">
+
+				<button type="button" class="btn btn-outline-warning me-2" onclick="window.location.href = '/login/'" style="color: black;">
+					Вход
+				</button>
+
+				<button type="button" class="btn btn-warning" onclick="window.location.href = '/register/'">
+					Регистрация
+				</button>
+
+			</div>
+		{% endif %}
+	</header>
+
+	{% block content %}{% endblock %}
+
+
+	<div style="margin: 2rem;"></div>
+
+
+	<link href="{% static '/bootstrap/css/bootstrap-utilities.min.css' %}" rel="stylesheet">
+	<link href="{% static '/bootstrap/css/bootstrap-reboot.min.css' %}" rel="stylesheet">
+	<link href="{% static '/bootstrap/css/bootstrap-grid.min.css' %}" rel="stylesheet">
+	<script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static '/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static '/bootstrap/js/bootstrap.esm.min.js' %}"></script>
+
+	{% include './style.html' %}
+
+	<script>
+
+
+
+		//
+		let black = $('#black');
+		let addWindow = $('#add-window');
+		let sidebar = $('#add-sidebar');
+		let button = $('#toggle-btn');
+		let body = $('body')
+
+
+		//Настройки тёмной темы
+
+
+		// Добавить заметку
+		$('#add').bind('click', function() {
+			black.toggleClass('active-block');
+			addWindow.toggleClass("active-add-window");
+		});
+
+		//Чёрный фон
+
+		black.bind("click", function() {
+			black.removeClass('active-block');
+			addWindow.removeClass('active-add-window');
+			sidebar.removeClass('active-add-sidebar');
+		});
+
+		button.bind("click", function() {
+			black.addClass('active-block');
+			sidebar.addClass('active-add-sidebar');
+		});
+
+	</script>
+</body>
+</html>
