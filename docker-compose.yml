@@ -4,3 +4,11 @@ services:
     build: .
     ports:
       - "8000:8000"
+  postgres:
+      image: postgres:13.3
+      environment:
+        POSTGRES_DB: "notemanager"
+        POSTGRES_USER: "database_user"
+        POSTGRES_PASSWORD: "Admin-admin"
+      ports:
+        - "5432:5432"
